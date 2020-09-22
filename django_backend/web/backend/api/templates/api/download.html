@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>ROI Form</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Main CSS-->
+    {% load static %}
+    <link href="{% static "api/download.css" %}" rel="stylesheet" media="all">
+
+    <!-- Loading Animation-->
+    <style>
+        .loader {
+          border: 16px solid #f3f3f3;
+          border-radius: 50%;
+          border-top: 16px solid #2c6ed5;
+          width: 120px;
+          height: 120px;
+          -webkit-animation: spin 2s linear infinite; /* Safari */
+          animation: spin 2s linear infinite;
+        }
+
+        /* Safari */
+        @-webkit-keyframes spin {
+          0% { -webkit-transform: rotate(0deg); }
+          100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrapper bg-blue p-t-130 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-4">
+                <div class="card-body">
+                    <h2 id="progress-title" class="title" align="center">
+                        Processing your request. Please wait.
+                    </h2>
+                    <div id="loading-div" align="center">
+                        <div class="loader"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if task_id %}
+      <script>
+      var taskUrl = "{% url 'task' task_id=task_id %}";
+      var dots = 1;
+      var progressTitle = document.getElementById('progress-title');
+      var timer = setInterval(function() {
+        axios.get(taskUrl)
+          .then(function(response){
+            var taskStatus = response.data.task_status
+            if (taskStatus === 'SUCCESS') {
+              var output_msg;
+              if (response.data.results.error === "") {
+                output_msg = 'Output CSV: ' + response.data.results.filename;
+                clearTimer(output_msg);
+                var url = window.location.protocol + '//' + window.location.host + response.data.results.filepath;
+                var a = document.createElement("a");
+                a.target = '_BLANK';
+                document.body.appendChild(a);
+                a.style = "display: none";
+                a.href = url;
+                a.download = 'results.zip';
+                a.click();
+                document.body.removeChild(a);
+              }
+              else {
+                output_msg = 'Error: ' + response.data.results.error;
+                clearTimer(output_msg);
+              }
+
+            } else if (taskStatus === 'FAILURE') {
+              clearTimer('Error processing your request');
+            }
+          })
+          .catch(function(err){
+            console.log('err', err);
+            clearTimer('Error processing your request');
+          });
+      }, 800);
+
+      function clearTimer(message) {
+        clearInterval(timer);
+        document.getElementById('loading-div').style.display = "none";
+        progressTitle.innerHTML = message;
+      }
+      </script>
+  {% endif %}
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
+<!-- end document-->

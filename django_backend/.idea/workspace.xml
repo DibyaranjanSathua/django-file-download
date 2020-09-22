@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0d57643c-2cb2-441b-b091-50a96314a93d" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1hh6O7coCYaBIbyAWgdWKSnzizP" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/backend/csvfiles" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web/backend/csvfiles" />
+      <recent name="$PROJECT_DIR$/web/backend/roifiles" />
+      <recent name="$PROJECT_DIR$/web/backend/api/static/api" />
+      <recent name="$PROJECT_DIR$/web/backend/home/static/home" />
+      <recent name="$PROJECT_DIR$/web/backend/staticfiles/api" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/web/backend/staticfiles/home" />
+      <recent name="$PROJECT_DIR$/web/backend" />
+      <recent name="$PROJECT_DIR$/nginx" />
+      <recent name="$PROJECT_DIR$/web" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0d57643c-2cb2-441b-b091-50a96314a93d" name="Default Changelist" comment="" />
+      <created>1600450941499</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600450941499</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="699" y="357" width="579" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600454388356">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="699" y="357" width="579" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1600454388356" />
+    <state x="771" y="296" width="424" height="513" key="FileChooserDialogImpl" timestamp="1600454543620">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="771" y="296" width="424" height="513" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1600454543620" />
+    <state x="482" y="187" key="SettingsEditor" timestamp="1600788281664">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1600788281664" />
+    <state x="641" y="291" width="704" height="522" key="find.popup" timestamp="1600591622507">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="641" y="291" width="704" height="522" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1600591622507" />
+  </component>
+</project>

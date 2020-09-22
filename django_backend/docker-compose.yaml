@@ -1,0 +1,50 @@
+version: '3.7'
+
+services:
+  web:
+    restart: always
+    command: gunicorn backend.wsgi:application --bind 0.0.0.0:8000 --workers 8
+    expose:
+      - 8000
+    volumes:
+      - static_volume:/usr/src/app/backend/staticfiles
+      - media_volume:/usr/src/app/backend/mediafiles
+      - /home/dibyaranjan/Upwork/Client1_Daniel_Scout24/django_backend/roi:/usr/src/app/backend/roifiles
+    build: ./web
+
+  redis:
+    image: redis:6.0.8-alpine
+    ports:
+      - 6380:6379
+
+  rabbit:
+    image: rabbitmq:3.8.8-alpine
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=mypass
+    ports:
+      - 5673:5672  # We forward this port because it's useful for debugging
+      - 15672:15672  # Here, we can access RabbitMQ management plugin
+
+  celery:
+    build: ./web
+    command: celery worker -A backend --loglevel=info
+    depends_on:
+      - web
+      - rabbit
+      - redis
+
+  nginx:
+    restart: always
+    ports:
+      - 8080:8080
+    volumes:
+      - static_volume:/usr/src/app/backend/staticfiles
+      - media_volume:/usr/src/app/backend/mediafiles
+    depends_on:
+      - web
+    build: ./nginx
+
+volumes:
+  static_volume:
+  media_volume:
